@@ -1,0 +1,27 @@
+name: 🪄 Update README
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"   # প্রতি 12 ঘণ্টায় একবার update হবে
+  workflow_dispatch:         # Manual run করার সুযোগ রাখবে
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Generate GitHub Stats
+        uses: anuraghazra/github-readme-stats@latest
+        with:
+          username: LeoCodes226
+          show_icons: true
+          theme: radical
+
+      - name: Update GitHub Activity Graph
+        uses: Ashutosh00710/github-readme-activity-graph@master
+        with:
+          username: LeoCodes226
+          theme: react-dark
